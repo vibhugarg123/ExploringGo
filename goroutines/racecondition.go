@@ -5,9 +5,11 @@ import (
 	"sync"
 )
 
-/*	To check if race condition exists-
-		- use go run racecondition.go --race
-	Use mutex when you are trying to access critical section
+/*
+To check if race condition exists-
+  - use go run racecondition.go --race
+
+Use mutex when you are trying to access critical section
 */
 func main() {
 	fmt.Println("Race condition")
@@ -17,6 +19,7 @@ func main() {
 
 	score := []int{0}
 
+	// 3 denotes the number of goroutines
 	wg.Add(3)
 
 	func(wg *sync.WaitGroup, mut *sync.Mutex) {
